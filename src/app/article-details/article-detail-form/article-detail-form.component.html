@@ -1,0 +1,35 @@
+<form #form="ngForm" (submit)="onSubmit(form)" 
+[class.submitted]="service.formSubmitted" novalidate autocomplete="off">
+    <input type="hidden" name="articleId" [value]="service.formData.articleId">
+    <div class="mb-3">
+        <label>Designation</label>
+        <input class="form-control form-control-lg" placeholder="Designation de l'article" #designation="ngModel"
+            name="designation" [(ngModel)]="service.formData.designation" required>
+    </div>
+    <div class="mb-3">
+        <label>Code</label>
+        <input class="form-control form-control-lg" placeholder="Code de l'article" #codeArticle="ngModel"
+            name="codeArticle" [(ngModel)]="service.formData.codeArticle" required>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label>Quantite</label>
+            <input class="form-control form-control-lg" placeholder="Quantite de l'article" #quantite="ngModel" name="quantite"
+                [(ngModel)]="service.formData.quantite" required min="0">
+        </div>
+        <div class="mb-3 col-6">
+            <label>Prix Unitaire</label>
+            <input class="form-control form-control-lg" placeholder="Prix Unitaire de l'article" #prixUnitaire="ngModel"
+                name="prixUnitaire" [(ngModel)]="service.formData.prixUnitaire" required min="0">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Date Peremption</label>
+        <input class="form-control form-control-lg" placeholder="MM/YY" #datePeremption="ngModel"
+            name="datePeremption" [(ngModel)]="service.formData.datePeremption" required
+            minlength="5" maxlength="5">
+    </div>
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">Ajouter</button>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+<div class="bg-body-secondary text-center py-5 rounded-2">
+    <h1 class="display-6 fw-bold">
+        Liste des articles
+    </h1>
+</div>
+
+<div class="row mt-5">
+    <div class="col-6">
+        <app-article-detail-form/>
+    </div>
+    <div class="col-6">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between
+            align-items-start mb-2 border px-4 py-3 rounded-3" *ngFor="let ad of service.list">
+                <div class="flex-grow-1 mouse-hover"
+                (click)="populateForm(ad)">
+                    <div class="fw-bold">{{ad.designation}}</div>
+                    <div class="fw-bold">{{ad.codeArticle}}</div>
+                    <div class="fw-bold">{{ad.quantite}}</div>
+                    <div class="fw-bold">{{ad.prixUnitaire}} Francs</div>
+                    <div class="fw-bold">{{ad.datePeremption}}</div>
+                </div>
+                <span class="text-secondary">
+                    <i class="fa-solid fa-trash-can fa-lg mouse-hover"
+                    (click)="onDelete(ad.articleId)"></i>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
